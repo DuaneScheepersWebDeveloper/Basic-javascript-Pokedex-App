@@ -1,0 +1,88 @@
+/*-------------------------------------------
+ *   Application Styling
+-------------------------------------------*/
+
+/* --- Modal Styling ---*/
+
+
+/* --- Dynamic classes for types ---*/
+    
+.water {
+    background-color: rgb(101, 174, 216);
+}
+
+.normal {
+    background-color: rgb(212, 212, 212);
+}
+
+.grass {
+    background-color: rgb(110, 212, 110);
+}
+
+.fire {
+    background-color: rgb(182, 92, 92);
+}
+
+.electric {
+    background-color: rgb(238, 212, 98);
+}
+
+
+/* ------------------------------------------
+*   Layouts
+-------------------------------------------*/
+
+*{
+font-size: 1rem;
+}
+
+body {
+display: flex;
+flex-direction: column;
+margin: 0;
+font-family: Helvetica, sans-serif;
+}
+
+/* Header */
+
+.top {
+min-height: 15vh;
+background-color: rgb(180, 45, 45);
+}
+
+/* Center content */
+
+.center {
+
+display: flex;
+background-color: rgb(202, 179, 159);
+min-height: 70vh;
+
+}
+
+.side{
+background-color: rgb(212, 212, 212);
+flex: 1;
+}
+
+#app{
+background-color: rgb(255, 255, 255);
+flex: 9;
+padding: 1.5rem;
+}
+
+#create-form {
+text-align: center;
+
+}
+
+h1 {
+text-align: center;
+color: whitesmoke;
+font-size: 3rem;
+margin: 0.5rem;
+}
+
+input, select {
+background-color: rgb(233, 205, 205);
+}
