@@ -1,56 +1,47 @@
-const logic = () => {
-	// First thing to do is get input from user
-	let name = document.getElementById('name');
-	let type = document.getElementById('type');
-	let region = document.getElementById('region');
+document.querySelector('#search').addEventListener('click', getPokemon);
 
-	// Will only give objects
-	console.log(name + ' - ' + type + ' - ' + region + ' region'); // remove once you have clear understanding
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-	// Get String values of variables
-	name = name.value;
-	type = type.value;
-	region = region.value;
+function lowerCaseName(string) {
+	return string.toLowerCase();
+}
 
-	// Can log them since they are now pure Strings
-	console.log(name + ' - ' + type + ' - ' + region + ' region'); // remove once you have clear understanding
+function getPokemon(e) {
+	const name = document.querySelector('#pokemonName').value;
+	const pokemonName = lowerCaseName(name);
 
-	/*-----------------------------------------------
-	 * Add your solution code here
-	 *---------------------------------------------*/
+	fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+		.then((response) => response.json())
+		.then((data) => {
+			document.querySelector('.pokemonBox').innerHTML = `
+        <div class="pokemonCard">
+      <div class="pokemonCardImage">
+        <img
+          src="${data.sprites.other['official-artwork'].front_default}"
+          alt="Pokemon name"
+        />
+      </div>
+      <div class="pokemonInfos">
+        <h1>${capitalizeFirstLetter(data.name)}</h3>
+        <p>Type: ${data.type}</p>
+      </div>
+      </div>`;
+		})
+		.catch((err) => {
+			document.querySelector('.pokemonBox').innerHTML = `
+      <h4>Pokemon not found </h4>
+      `;
+			console.log('Pokemon not found', err);
+		});
 
-	/* --- Part 1 : Create pokemon data Object --- */
+	e.preventDefault();
+	console.log(data);
+}
 
-	// Use If to ensure input validation (ensure input fields are !empty)
-	// Create pokemon object here (const pokemon) using user input Strings
-
-	// Create a span element (const pokemonData) and put the pokemon objects properties inside of it
-
-	/* --- Part 2 : Creating other DOM Objects --- */
-
-	// Create HTML li element here (const pokedexEntry)
-
-	// Give pokedexEntry (li) a new class equal to the "type" property of the pokemon object
-
-	// Creating a preview button (using a Template Literal)
-	// this code is for an html form that will Google search the name of the pokemon
-	const previewButton = `
-            <form action="http://google.com/search" target="_blank">
-                <input name="q" hidden value="${name}">
-                <input type="submit">
-            </form>
-        `;
-
-	/* --- Part 3 : Add things into the DOM --- */
-
-	// Firstly append pokemonData to the innerHTML of pokedexEntry
-
-	// Secondly append the previewButton to innerHTML of pokedexEntry
-
-	// Lastly we will get the ul List element that is meant to contain all pokedex entries
-	// The we will append pokedexEntry to the innerHTML of the pokedexEntries ul element
-
-	/*-----------------------------------------------
-	 * Solution must be above this comment
-	 *---------------------------------------------*/
+const fetchKantoPokemon = () => {
+	fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+		.then((response) => response.json())
+		.then((allpokemon) => console.log(allpokemon));
 };

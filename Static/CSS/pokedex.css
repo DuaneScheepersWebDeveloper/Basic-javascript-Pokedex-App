@@ -1,88 +1,117 @@
-/*-------------------------------------------
- *   Application Styling
--------------------------------------------*/
-
-/* --- Modal Styling ---*/
-
-
-/* --- Dynamic classes for types ---*/
-    
 .water {
-    background-color: rgb(101, 174, 216);
+	background-color: rgb(101, 174, 216);
 }
 
 .normal {
-    background-color: rgb(212, 212, 212);
+	background-color: rgb(212, 212, 212);
 }
 
 .grass {
-    background-color: rgb(110, 212, 110);
+	background-color: rgb(110, 212, 110);
 }
 
 .fire {
-    background-color: rgb(182, 92, 92);
+	background-color: rgb(182, 92, 92);
 }
 
 .electric {
-    background-color: rgb(238, 212, 98);
+	background-color: rgb(238, 212, 98);
 }
 
-
-/* ------------------------------------------
-*   Layouts
--------------------------------------------*/
-
-*{
-font-size: 1rem;
+* {
+	font-size: 1rem;
 }
 
 body {
-display: flex;
-flex-direction: column;
-margin: 0;
-font-family: Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	font-family: Helvetica, sans-serif;
+	background-image: url(../images/Background.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	scroll-behavior: smooth;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
-
-/* Header */
 
 .top {
-min-height: 15vh;
-background-color: rgb(180, 45, 45);
+	background-image: url(../images/pokeballbackground.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
-
-/* Center content */
 
 .center {
-
-display: flex;
-background-color: rgb(202, 179, 159);
-min-height: 70vh;
-
 }
 
-.side{
-background-color: rgb(212, 212, 212);
-flex: 1;
+.side {
 }
 
-#app{
-background-color: rgb(255, 255, 255);
-flex: 9;
-padding: 1.5rem;
+#app {
 }
 
 #create-form {
-text-align: center;
-
+	text-align: center;
 }
 
-h1 {
-text-align: center;
-color: whitesmoke;
-font-size: 3rem;
-margin: 0.5rem;
+.mainHeading {
+	text-align: center;
+	color: whitesmoke;
+	font-size: 3rem;
+	margin: 0.5rem;
 }
 
-input, select {
-background-color: rgb(233, 205, 205);
+input,
+select {
+	background-color: rgb(233, 205, 205);
+}
+#create-form {
+	margin: 20px;
+}
+.underLine {
+	text-decoration: underline;
+}
+.pokeInput {
+	margin: 20px;
+}
+.pokePic {
+	height: auto;
+	width: 5rem;
+	display: flex;
+	margin: auto;
+}
+.pokePic img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.headerWrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.pokemonBox {
+	display: grid;
+
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.pokemonCard {
+	margin: 10px;
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.025);
+	border-radius: 20px;
+	text-align: center;
+}
+.pokemonCard .pokemonCardImage {
+	height: auto;
+	width: 10rem;
+	margin: auto;
+}
+.pokemonCardImage img {
+	max-width: 100%;
+	max-height: 100%;
 }
