@@ -1,12 +1,12 @@
 document.querySelector('#search').addEventListener('click', getPokemon);
 
-function capitalizeFirstLetter(string) {
+const capitalizeFirstLetter = (string) => {
 	return string.charAt(0).toUpperCase() + string.slice(1);
-}
+};
 
-function lowerCaseName(string) {
+const lowerCaseName = (string) => {
 	return string.toLowerCase();
-}
+};
 
 function getPokemon(e) {
 	const name = document.querySelector('#pokemonName').value;
@@ -25,7 +25,8 @@ function getPokemon(e) {
       </div>
       <div class="pokemonInfos">
         <h1>${capitalizeFirstLetter(data.name)}</h3>
-        <p>Type: ${data.type}</p>
+        <p>Type: ${data.types[0].type.name} / ${data.types[1].type.name}</p>
+		
       </div>
       </div>`;
 		})
@@ -37,7 +38,6 @@ function getPokemon(e) {
 		});
 
 	e.preventDefault();
-	console.log(data);
 }
 
 const fetchKantoPokemon = () => {
@@ -45,3 +45,15 @@ const fetchKantoPokemon = () => {
 		.then((response) => response.json())
 		.then((allpokemon) => console.log(allpokemon));
 };
+
+//905 pokemon
+//Generation I 1-151
+//Generation II 152-251
+//Generation III 252-386
+//Generation IV 387-493
+//Generation V 494-649
+//Generation VI 650-721
+//Generation VII 722-809
+//Generation VIII 810-905
+//bulbasaur poison grass
+//mew Normal

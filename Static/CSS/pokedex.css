@@ -27,14 +27,8 @@ body {
 	flex-direction: column;
 	margin: 0;
 	font-family: Helvetica, sans-serif;
-	background-image: url(../images/Background.jpg);
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	scroll-behavior: smooth;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
+	background: linear-gradient(to right, grey, white, grey, white);
+	background-size: 400% 400%;
 }
 
 .top {
