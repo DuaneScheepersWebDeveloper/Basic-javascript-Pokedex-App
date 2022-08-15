@@ -35,11 +35,19 @@ function getPokemon(e) {
 		<p>Base Experience: ${data.base_experience}</p>
       </div>
       </div>`;
+			console.log(
+				data.id,
+				data.name,
+				data.types.map((type) => type.type.name).join(' / '),
+				data.weight,
+				data.height,
+				data.base_experience
+			);
 		})
 		// ${data.types[0].type.name}
 		.catch((err) => {
 			document.querySelector('.pokemonBox').innerHTML = `
-      <h4>Pokemon not found </h4>
+      <h4>Sorry your Pokemon not found </h4>
       `;
 			console.log('Pokemon not found', err);
 		});
