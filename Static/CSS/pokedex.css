@@ -122,3 +122,9 @@ select {
 main {
 	margin-bottom: 20px;
 }
+#pokeContainer {
+	justify-content: space-between;
+	gap: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

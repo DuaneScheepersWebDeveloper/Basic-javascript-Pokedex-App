@@ -53,6 +53,9 @@
 						id="pokemonName"
 					/>
 				</div>
+				<button class="btn btn-danger" id="search">
+					Search Pokemon by name
+				</button>
 				<div class="pokeInput">
 					<select class="form-select" name="type" id="type">
 						<option value="" disabled selected>
@@ -79,26 +82,25 @@
 						<option value="fairy">Fairy</option>
 					</select>
 				</div>
+
 				<div class="pokeInput">
 					<select class="form-select" name="region" id="region">
 						<option value="" disabled selected>
 							Select the Generation the pokemon was introduced
 						</option>
-						<option value="Kanto">Generation I</option>
-						<option value="Johto">Generation II</option>
-						<option value="Hoenn">Generation III</option>
-						<option value="Sinnoh">Generation IV</option>
-						<option value="Unova">Generation V</option>
-						<option value="Kalos">Generation VI</option>
-						<option value="Alola">Generation VII</option>
-						<option value="Galar">Generation VIII</option>
+						<option value="Kanto">Kanto (Generation I)</option>
+						<option value="Johto">Johto (Generation II)</option>
+						<option value="Hoenn">Hoenn (Generation III)</option>
+						<option value="Sinnoh">Sinnoh (Generation IV)</option>
+						<option value="Unova">Unova (Generation V)</option>
+						<option value="Kalos">Kalos (Generation VI)</option>
+						<option value="Alola">Alola (Generation VII)</option>
+						<option value="Galar">Galar (Generation VIII)</option>
 					</select>
 				</div>
-
-				<button class="btn btn-danger" id="search">Search Pokemon</button>
 			</form>
 		</header>
-
+		<hr />
 		<main class="center">
 			<div class="pokemonBox"></div>
 			<div id="pokeContainer"></div>
