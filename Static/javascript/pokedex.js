@@ -57,7 +57,6 @@ function getPokemon(e) {
 	e.preventDefault();
 }
 //---------------------------------------------------------------------
-const pokedex = document.getElementById('pokedex');
 
 const fetchPokemonKanto = () => {
 	const promises = [];
