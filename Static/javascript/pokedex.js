@@ -24,12 +24,19 @@ function getPokemon(e) {
         />
       </div>
       <div class="pokemonInfos">
+	  <p class="idClass">Pokedex Id: ${data.id}</p>
         <h1>${capitalizeFirstLetter(data.name)}</h3>
-        <p>Type: ${data.types[0].type.name} / ${data.types[1].type.name}</p>
 		
+        <p class="types">Type: ${data.types
+					.map((type) => type.type.name)
+					.join(' / ')}</p>
+		<p>Weight: ${data.weight}</p>
+		<p>Height: ${data.height}</p>
+		<p>Base Experience: ${data.base_experience}</p>
       </div>
       </div>`;
 		})
+		// ${data.types[0].type.name}
 		.catch((err) => {
 			document.querySelector('.pokemonBox').innerHTML = `
       <h4>Pokemon not found </h4>
@@ -41,7 +48,7 @@ function getPokemon(e) {
 }
 
 const fetchKantoPokemon = () => {
-	fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+	fetch('https://pokeapi.co/api/v2/pokemon/151/')
 		.then((response) => response.json())
 		.then((allpokemon) => console.log(allpokemon));
 };
@@ -57,3 +64,9 @@ const fetchKantoPokemon = () => {
 //Generation VIII 810-905
 //bulbasaur poison grass
 //mew Normal
+
+// const fetchKantoPokemon = () => {
+// 	fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+// 		.then((response) => response.json())
+// 		.then((allpokemon) => console.log(allpokemon));
+// };
