@@ -79,6 +79,16 @@ select {
 	display: flex;
 	margin: auto;
 }
+.pokePic2 {
+	height: auto;
+	width: 10rem;
+	display: flex;
+	margin: auto;
+}
+.pokePic2 img {
+	max-width: 100%;
+	max-height: 100%;
+}
 .pokePic img {
 	max-width: 100%;
 	max-height: 100%;
@@ -88,24 +98,62 @@ select {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 .pokemonBox {
+	display: grid;
+	justify-content: center;
+	margin-bottom: 20px;
 }
 .pokemonCard {
+	color: white;
 	height: 100%;
-	width: 100%;
+	width: 80%;
 	margin: 20px;
 	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 	border-top: 1px solid rgba(255, 255, 255, 0.5);
 	border-left: 1px solid rgba(255, 255, 255, 0.5);
-	background-color: rgba(255, 255, 255, 0.025);
+	background-color: rgba(0, 0, 0, 0.7);
 	backdrop-filter: blur(0.25px);
 	-webkit-backdrop-filter: blur(0.25px);
 	border-radius: 20px;
 	text-align: center;
 }
-.pokemonCard .pokemonCardImage {
+.pokemonCardSingle {
+	color: white;
+	height: 100%;
+	width: 250px;
+	margin: 20px;
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	background-color: rgba(0, 0, 0, 0.9);
+	backdrop-filter: blur(0.25px);
+	-webkit-backdrop-filter: blur(0.25px);
+	border-radius: 20px;
+	text-align: center;
+}
+.pokemonCardSingle .pokemonCardImageSingle {
+	height: auto;
+	width: auto;
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+}
+.pokemonCard .pokemonCardImageSingle {
 	height: auto;
 	width: 10rem;
 	margin: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+}
+.pokemonCardImageSingle img {
+	max-width: 100%;
+	max-height: 100%;
+}
+.pokemonCard .pokemonCardImage {
+	height: auto;
+	width: 8rem;
+	margin: 8%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: auto;
@@ -119,7 +167,7 @@ main {
 }
 #pokeContainer {
 	justify-content: space-between;
-	gap: 8px;
+
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 }

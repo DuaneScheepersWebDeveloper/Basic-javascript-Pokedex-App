@@ -1,6 +1,8 @@
 document.querySelector('#search').addEventListener('click', getPokemon);
 document.addEventListener('DOMContentLoaded', () => {
-	document.getElementById('region').addEventListener('input', handleSelect);
+	document
+		.getElementById('region')
+		.addEventListener('input', handleSelectRegion);
 });
 //---------------------------------------------------------------------
 const capitalizeFirstLetter = (string) => {
@@ -11,6 +13,26 @@ const lowerCaseName = (string) => {
 	return string.toLowerCase();
 };
 
+const colorsTypes = {
+	fire: '#FDDFDF',
+	grass: '#DEFDE0',
+	electric: '#FCF7DE',
+	water: '#DEF3FD',
+	ground: '#f4e7da',
+	rock: '#d5d5d4',
+	fairy: '#fceaff',
+	poison: '#98d7a5',
+	bug: '#f8d5a3',
+	dragon: '#97b3e6',
+	psychic: '#eaeda1',
+	flying: '#F5F5F5',
+	fighting: '#E6E0D4',
+	normal: '#F5F5F5',
+	ice: '#DBF1FD ',
+	ghost: '#DA70D6',
+	steel: '#CED2D7',
+	dark: '#282828',
+};
 //Get a single Pokemon
 function getPokemon(e) {
 	const name = document.querySelector('#pokemonName').value;
@@ -20,8 +42,8 @@ function getPokemon(e) {
 		.then((response) => response.json())
 		.then((data) => {
 			document.querySelector('.pokemonBox').innerHTML = `
-        <div class="pokemonCard">
-      <div class="pokemonCardImage">
+        <div styles="background-color:red"class="pokemonCardSingle">
+      <div class="pokemonCardImageSingle">
         <img
           src="${data.sprites.other['official-artwork'].front_default}"
           alt="Pokemon name"
@@ -91,6 +113,7 @@ const fetchPokemonJohto = () => {
 			type: data.types.map((type) => type.type.name).join(' / '),
 			id: data.id,
 		}));
+
 		displayPokemon(pokemon);
 	});
 };
@@ -114,7 +137,7 @@ const fetchPokemonHoenn = () => {
 //---------------------------------------------------------------------
 const fetchPokemonSinnoh = () => {
 	const promises = [];
-	for (let i = 387; i <= 649; i++) {
+	for (let i = 387; i <= 494; i++) {
 		const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
 		promises.push(fetch(url).then((res) => res.json()));
 	}
@@ -131,7 +154,7 @@ const fetchPokemonSinnoh = () => {
 //---------------------------------------------------------------------
 const fetchPokemonUnova = () => {
 	const promises = [];
-	for (let i = 494; i <= 649; i++) {
+	for (let i = 495; i <= 649; i++) {
 		const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
 		promises.push(fetch(url).then((res) => res.json()));
 	}
@@ -197,9 +220,10 @@ const fetchPokemonGalar = () => {
 	});
 };
 //---------------------------------------------------------------------
-
+//data.types[0].type.name
 const displayPokemon = (pokemon) => {
 	console.log(pokemon);
+
 	const pokemonHTMLString = pokemon
 		.map(
 			(pokeman) => `
@@ -219,7 +243,7 @@ const displayPokemon = (pokemon) => {
 	pokeContainer.innerHTML = pokemonHTMLString;
 };
 
-function handleSelect(ev) {
+function handleSelectRegion(ev) {
 	let select = ev.target;
 	switch (select.value) {
 		case 'Kanto':
@@ -253,9 +277,12 @@ function handleSelect(ev) {
 
 //---------------------------------------------------------------------
 const fetchMew = () => {
-	fetch('https://pokeapi.co/api/v2/pokemon/151/')
+	fetch('https://pokeapi.co/api/v2/pokemon/1/')
 		.then((response) => response.json())
-		.then((allpokemon) => console.log(allpokemon));
+		.then((data) => {
+			const types = data.types.map((type) => type.type.name).join(' / ');
+			console.log(types);
+		});
 };
 //---------------------------------------------------------------------
 
