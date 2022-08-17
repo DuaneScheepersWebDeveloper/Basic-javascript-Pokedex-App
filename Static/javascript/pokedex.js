@@ -65,7 +65,7 @@ function getPokemon(e) {
 			console.log(
 				data.id,
 				data.name,
-				pokeTypes,
+				data.types.map((type) => type.type.name).join(' / '),
 				data.weight,
 				data.height,
 				data.base_experience
