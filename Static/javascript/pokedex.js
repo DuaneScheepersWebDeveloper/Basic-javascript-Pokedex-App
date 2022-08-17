@@ -33,6 +33,7 @@ const colorsTypes = {
 	steel: '#CED2D7',
 	dark: '#282828',
 };
+const mainTypes = Object.keys(colors);
 //Get a single Pokemon
 function getPokemon(e) {
 	const name = document.querySelector('#pokemonName').value;
@@ -41,8 +42,9 @@ function getPokemon(e) {
 	fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 		.then((response) => response.json())
 		.then((data) => {
-			document.querySelector('.pokemonBox').innerHTML = `
-        <div styles="background-color:red"class="pokemonCardSingle">
+			const pokeTypes = data.types.map((type) => type.type.name).join(' / ');
+						document.querySelector('.pokemonBox').innerHTML = `
+        <div class="pokemonCardSingle">
       <div class="pokemonCardImageSingle">
         <img
           src="${data.sprites.other['official-artwork'].front_default}"
@@ -53,9 +55,7 @@ function getPokemon(e) {
 	  <p class="idClass">Pokedex Id: ${data.id}</p>
         <h1>${capitalizeFirstLetter(data.name)}</h3>
 		
-        <p id="types"class="types">Type: ${data.types
-					.map((type) => type.type.name)
-					.join(' / ')}</p>
+        <p id="types"class="types">Type: ${pokeTypes}</p>
 		<p>Weight: ${data.weight}</p>
 		<p>Height: ${data.height}</p>
 		<p>Base Experience: ${data.base_experience}</p>
