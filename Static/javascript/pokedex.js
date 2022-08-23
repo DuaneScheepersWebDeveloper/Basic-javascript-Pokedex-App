@@ -228,6 +228,7 @@ const displayPokemon = (pokemon) => {
 	const pokemonHTMLString = pokemon
 		.map(
 			(pokeman) => `
+			<div class="pokemonCardWrapper">
        <div class="pokemonCard">
 	   <div class="pokemonCardImage">
             <img class="card-image" src="${pokeman.image}"/>
@@ -238,6 +239,7 @@ const displayPokemon = (pokemon) => {
             <p class="card-subtitle">Type: ${pokeman.type}</p>
 			</div>
       </div>
+	  </div>
     `
 		)
 		.join('');
